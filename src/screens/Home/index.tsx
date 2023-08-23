@@ -1,44 +1,39 @@
-import Header from "../../components/Header";
-import Balance from "../../components/Balance";
-import Movements from "../../components/Movements";
+import { Logo } from "../../components/Logo";
+import { CustomButton } from "../../components/CustomButton";
+import { Title, Subtitle, Container, LittleText } from "./styles";
 
-import { ListRenderItem } from "react-native";
-import { Container, ListBalance, Title } from "./styles";
-import { IlistBalanceProps } from "../../@types/movements";
-import Actions from "../../components/Actions";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-const listBalance = [
-  {
-    id: 1,
-    label: "Conta de internet",
-    value: 100,
-    date: "20/08/2023",
-    type: 0,
-  },
-  { id: 2, label: "Salário", value: 2200, date: "30/07/2023", type: 1 },
-  { id: 3, label: "Conta de energia", value: 98, date: "21/08/2023", type: 0 },
-  { id: 4, label: "Mercado", value: 600, date: "20/08/2023", type: 0 },
-];
+// Defina o tipo da propriedade de navegação
+type RootStackParamList = {
+  signin: undefined; // Adicione outras rotas aqui, se necessário
+};
 
-export default function Home() {
-  const renderItem: ListRenderItem<IlistBalanceProps> = ({ item }) => (
-    <Movements item={item} />
-  );
+type HomeScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "signin"
+>;
 
+interface HomeProps {
+  navigation: HomeScreenNavigationProp;
+}
+
+export default function Home({ navigation }: HomeProps) {
   return (
     <Container>
-      <Header />
-      <Balance />
+      <Logo />
 
-      <Title>Ultimas movimentações</Title>
+      <Title>Finance Master</Title>
 
-      <Actions />
+      <Subtitle>Organize as suas finanças em um só lugar</Subtitle>
 
-      <ListBalance
-        data={listBalance}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(item: IlistBalanceProps) => String(item.id)}
-        renderItem={renderItem}
+      <LittleText>
+        Controle suas receitas e despesas de um jeito dinâmico e simples
+      </LittleText>
+
+      <CustomButton
+        title="Comece por aqui!"
+        onPress={() => navigation.navigate("signin")}
       />
     </Container>
   );
