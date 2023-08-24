@@ -5,10 +5,10 @@ interface IcustomButtonProps {
   onPress: () => void;
 }
 
-export const CustomButton = ({ title, onPress }: IcustomButtonProps) => {
+export default function CustomButton({ title, onPress }: IcustomButtonProps) {
   return (
     <StyledButton onPress={onPress} activeOpacity={0.8}>
       <ButtonText>{title}</ButtonText>
     </StyledButton>
   );
-};
+}

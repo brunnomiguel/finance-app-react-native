@@ -1,42 +1,44 @@
-import { Logo } from "../../components/Logo";
-import { Title } from "../Home/styles";
-import { SignInForm } from "../../components/Forms/SignInForm";
-import { LinkText, Container } from "./styles";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
 import {
   Keyboard,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
 } from "react-native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+import { Logo } from "../../components/Logo";
+import { Title } from "../Home/styles";
+import { LinkText } from "../SignIn/styles";
+import { Container } from "./styles";
+
+import SignUpForm from "../../components/Forms/SignUpForm";
 
 // Tipo da propriedade de navegação
 type RootStackParamList = {
-  signup: undefined;
+  signin: undefined;
 };
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
-  "signup"
+  "signin"
 >;
 
-interface SignInProps {
+interface SignUpProps {
   navigation: HomeScreenNavigationProp;
 }
 
-export default function SignIn({ navigation }: SignInProps) {
+export default function SignUp({ navigation }: SignUpProps) {
   return (
     <Container>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView behavior="position" enabled>
           <Logo />
-          <Title formSchema>Login</Title>
-          <SignInForm />
+          <Title formSchema>Cadastro</Title>
+          <SignUpForm />
 
           <LinkText registerSchema>
-            Não tem uma conta?{" "}
-            <LinkText onPress={() => navigation.navigate("signup")}>
-              Cadastre-se
+            Já possui uma conta?{" "}
+            <LinkText onPress={() => navigation.navigate("signin")}>
+              Faça login
             </LinkText>
           </LinkText>
         </KeyboardAvoidingView>
