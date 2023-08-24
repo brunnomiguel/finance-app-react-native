@@ -9,9 +9,12 @@
 - Styled-Components - Styles
 - React-native-animated - Animations
 - Moti - Animations
-- React-Navigation
-- AsyncStorage
-- Redux
+- React-Navigation - Routes
+- AsyncStorage - Data Persistense
+- Redux / ContextAPI - State Management
+- React-hook-form - Forms
+- @hookform/resolvers - Forms
+- yup - Forms
 
 ## Em desenvolvimento
 - Funcionlidades nos botões para novas páginas
