@@ -1,11 +1,9 @@
-import { ComponentProps, useCallback, useEffect, useState } from "react";
-
-import { Container, InputText, IconContainer } from "./styles";
-
 import { Feather } from "@expo/vector-icons";
 
 import { FieldError } from "react-hook-form";
 import { TextInputProps } from "react-native";
+import { Container, InputText, IconContainer } from "./styles";
+import { ComponentProps, useCallback, useEffect, useState } from "react";
 
 export type InputProps = TextInputProps & {
   icon: ComponentProps<typeof Feather>["name"];
