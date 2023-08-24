@@ -1,12 +1,13 @@
+import CustomButton from "../../components/CustomButton";
+
 import { Logo } from "../../components/Logo";
-import { CustomButton } from "../../components/CustomButton";
 import { Title, Subtitle, Container, LittleText } from "./styles";
 
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-// Defina o tipo da propriedade de navegação
+// Tipo da propriedade de navegação
 type RootStackParamList = {
-  signin: undefined; // Adicione outras rotas aqui, se necessário
+  signin: undefined;
 };
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<

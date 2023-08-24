@@ -19,3 +19,14 @@ export const ContainerForm = styled.View`
 
   align-items: center;
 `;
+
+export const LinkText = styled.Text`
+  margin-top: ${({ registerSchema }: Props) =>
+    registerSchema ? "40px" : "12px"};
+
+  margin-bottom: 12px;
+
+  font-size: 18px;
+
+  color: #110d8c;
+`;

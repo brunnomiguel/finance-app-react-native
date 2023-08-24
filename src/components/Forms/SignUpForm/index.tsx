@@ -1,32 +1,41 @@
+import { Container } from "./styles";
+
 import CustomButton from "../../CustomButton";
 import ControlledInput from "../ControlledInput";
 
 import { useForm } from "react-hook-form";
-import { LinkText } from "../../../screens/SignIn/styles";
-import { Container } from "./styles";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signInSchema } from "../../../schemas";
+import { signUpSchema } from "../../../schemas";
 
-type SignInData = {
+type SignUpData = {
+  usuario: string;
   email: string;
   senha: string;
+  confirma_senha: string | undefined;
 };
 
-export const SignInForm = () => {
+export default function SignUpForm() {
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignInData>({
-    resolver: yupResolver(signInSchema),
+  } = useForm<SignUpData>({
+    resolver: yupResolver(signUpSchema),
   });
 
-  const handleSignIn = (data: SignInData) => {
+  const handleSignUp = (data: SignUpData) => {
     console.log(data);
   };
 
   return (
     <Container>
+      <ControlledInput
+        name="usuario"
+        icon="user"
+        control={control}
+        placeholder="Nome completo"
+        error={errors.usuario}
+      />
       <ControlledInput
         name="email"
         icon="mail"
@@ -44,10 +53,16 @@ export const SignInForm = () => {
         secureTextEntry
         error={errors.senha}
       />
+      <ControlledInput
+        name="confirma_senha"
+        icon="lock"
+        control={control}
+        placeholder="Confirme a sua senha"
+        secureTextEntry
+        error={errors.confirma_senha}
+      />
 
-      <LinkText>Esqueceu sua senha?</LinkText>
-
-      <CustomButton title="Acessar" onPress={handleSubmit(handleSignIn)} />
+      <CustomButton title="Cadastrar" onPress={handleSubmit(handleSignUp)} />
     </Container>
   );
-};
+}

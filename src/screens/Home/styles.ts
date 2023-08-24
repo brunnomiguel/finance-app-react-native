@@ -3,7 +3,7 @@ import styled, { css } from "styled-components/native";
 import { StatusBar } from "react-native";
 
 interface Props {
-  loginSchema: boolean;
+  formSchema: boolean;
 }
 
 export const statusBarHeight = StatusBar.currentHeight
@@ -30,8 +30,8 @@ export const Title = styled.Text`
 
   text-align: center;
 
-  ${({ loginSchema }: Props) =>
-    loginSchema &&
+  ${({ formSchema }: Props) =>
+    formSchema &&
     css`
       font-weight: bold;
       color: #000;
