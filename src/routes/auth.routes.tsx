@@ -6,7 +6,7 @@ import SignUp from "../screens/SignUp";
 
 const Stack = createNativeStackNavigator();
 
-export default function StackRoutes() {
+export default function AuthRoutes() {
   return (
     <Stack.Navigator
       initialRouteName="Home"

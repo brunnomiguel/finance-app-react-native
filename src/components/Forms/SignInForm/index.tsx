@@ -6,13 +6,16 @@ import { LinkText } from "../../../screens/SignIn/styles";
 import { Container } from "./styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signInSchema } from "../../../schemas";
+import { useAuth } from "../../../contexts/Auth";
 
 type SignInData = {
   email: string;
-  senha: string;
+  password: string;
 };
 
 export const SignInForm = () => {
+  const { signIn } = useAuth();
+
   const {
     control,
     handleSubmit,
@@ -22,7 +25,7 @@ export const SignInForm = () => {
   });
 
   const handleSignIn = (data: SignInData) => {
-    console.log(data);
+    signIn(data);
   };
 
   return (
@@ -37,12 +40,12 @@ export const SignInForm = () => {
         error={errors.email}
       />
       <ControlledInput
-        name="senha"
+        name="password"
         icon="lock"
         control={control}
         placeholder="Senha"
         secureTextEntry
-        error={errors.senha}
+        error={errors.password}
       />
 
       <LinkText>Esqueceu sua senha?</LinkText>
