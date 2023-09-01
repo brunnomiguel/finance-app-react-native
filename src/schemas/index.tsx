@@ -5,7 +5,7 @@ export const signInSchema = yup.object({
     .string()
     .required("Informe o seu e-mail.")
     .email("Formato de e-mail inválido."),
-  senha: yup
+  password: yup
     .string()
     .min(6, "Senha precisa conter o mínimo de 6 dígitos")
     .required("Digite a sua senha."),
