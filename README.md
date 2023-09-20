@@ -16,9 +16,14 @@
 - @hookform/resolvers - Forms
 - yup - Forms
 
-## Em desenvolvimento
-- Funcionlidades nos botões para novas páginas
-- Página de detalhes de receitas
-- Página de detalhes de despesas
+## Funcionais
+- Funcionalidade de paginação entre telas
 - Página de Login
 - Página de Cadastro
+- Autenticação
+- Dashboard
+
+## Em desenvolvimento
+- Tela de perfil
+- Página de receitas
+- Página de despesas
