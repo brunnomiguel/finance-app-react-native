@@ -1,11 +1,12 @@
-import Header from "../../components/Header";
 import Balance from "../../components/Balance";
 import Movements from "../../components/Movements";
 
 import { ListRenderItem } from "react-native";
-import { Container, ListBalance, Title } from "./styles";
 import { IlistBalanceProps } from "../../@types/movements";
+import { Container, ListBalance, Title } from "./styles";
+
 import Actions from "../../components/Actions";
+import Layout from "../../components/LayoutDashboard";
 
 const listBalance = [
   {
@@ -27,20 +28,17 @@ export default function Dashboard() {
 
   return (
     <Container>
-      <Header />
-
-      <Balance />
-
-      <Title>Ultimas movimentações</Title>
-
-      <Actions />
-
-      <ListBalance
-        data={listBalance}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(item: IlistBalanceProps) => String(item.id)}
-        renderItem={renderItem}
-      />
+      <Layout>
+        <Balance />
+        <Title>Ultimas movimentações</Title>
+        <Actions />
+        <ListBalance
+          data={listBalance}
+          showsVerticalScrollIndicator={false}
+          keyExtractor={(item: IlistBalanceProps) => String(item.id)}
+          renderItem={renderItem}
+        />
+      </Layout>
     </Container>
   );
 }
